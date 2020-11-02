@@ -8,7 +8,12 @@ for i in sources/*.txt tests/*.txt; do
 done
 
 
-# TODO 
+# Exercise 2
+# e)
+fstconcat compiled/horas.fst compiled/e_to_dots.fst > compiled/horas_e_dots.fst
+fstconcat compiled/horas_e_dots.fst compiled/minutos.fst > compiled/text2num_aux.fst
+
+fstrmepsilon compiled/text2num_aux.fst > compiled/text2num.fst
 
 
 for i in compiled/*.fst; do
@@ -17,4 +22,4 @@ for i in compiled/*.fst; do
 done
 
 echo "Testing the transducer 'converter' with the input 'tests/numero.txt'"
-fstcompose compiled/numero.fst compiled/converter.fst | fstshortestpath | fstproject --project_output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+fstcompose compiled/numero.fst compiled/converter.fst | fstshortestpath | fstproject --project_output=true | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
