@@ -32,7 +32,7 @@
 20  22  sete    7
 20  22  oito    8
 20  22  nove    9
-1   22  eps 1
+1   23  eps 1
 2   22  eps 2
 3   22  eps 3
 4   22  eps 4
@@ -52,6 +52,8 @@
 18   22  eps 8
 19   22  eps 9
 21  22  eps 0 
-22  22  minuto  eps
-22  22  minutos eps
-22
+22  24  minutos eps
+22  24  eps eps
+23  24  minuto  eps
+23  24  eps eps
+24

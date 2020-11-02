@@ -35,7 +35,7 @@ fstunion  compiled/rich2num_2_aux.fst   compiled/text2num.fst > compiled/rich2nu
 fstrmepsilon compiled/rich2num_3_aux.fst > compiled/rich2num.fst
 
 # i)
-fstreverse compiled/rich2num.fst > compiled/num2text_aux.fst
+fstinvert compiled/rich2num.fst > compiled/num2text_aux.fst
 
 fstrmepsilon compiled/num2text_aux.fst > compiled/num2text.fst
 
