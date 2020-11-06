@@ -1,0 +1,6 @@
+0   1   dez dez
+1   2   minutos  minutos
+2   3   e   e
+3   4   quinze  quinze
+4   5   horas horas
+5
