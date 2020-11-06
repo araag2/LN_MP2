@@ -2,11 +2,10 @@
 
 mkdir -p compiled images
 
-for i in sources/*.txt tests/minutos/*.txt; do
+for i in sources/*.txt; do
 	echo "Compiling: $i"
     fstcompile --isymbols=syms.txt --osymbols=syms.txt $i | fstarcsort > compiled/$(basename $i ".txt").fst
 done
-
 
 # Exercise 2
 
@@ -51,25 +50,3 @@ done
 
 # echo "Testing the transducer 'converter' with the input 'tests/numero.txt'"
 # fstcompose compiled/numero.fst compiled/converter.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-
-# TODO: REMOVE LATER
-### TESTS
-
-# horas .txt
-#for i in compiled/test_horas_*.fst; do
-    #echo "Testing the transducer 'horas' with the input compiled/$(basename $i '.fst')"  
-    #fstcompose $i compiled/horas.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-#done
-
-# minutos .txt
-for i in compiled/test_minutos_*.fst; do
-    echo "Testing the transducer 'minutos' with the input compiled/$(basename $i '.fst')"  
-    fstcompose $i compiled/minutos.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-done
-
-
-for i in compiled/test_*.fst images/test_*.pdf; do
-	echo "Removing test file: compiled/$(basename $i '.fst')"
-    rm $i
-done
-
