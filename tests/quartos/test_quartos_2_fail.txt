@@ -1,0 +1,3 @@
+0   1   dois dois
+1   2   quarto   quarto
+2

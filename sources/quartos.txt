@@ -1,8 +1,8 @@
 0   1   um  eps
-0   1   dois    eps
-0   2   tres    quarenta
-1   3   quarto  quinze 
-1   3   quartos trinta
-2   4   quartos e
-4   3   eps cinco   
-3
+0   2   dois    eps
+0   3   tres    quarenta
+3   4   quartos e
+4   5   eps cinco
+1   5   quarto  quinze
+2   5   quartos trinta
+5
