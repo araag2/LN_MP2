@@ -54,7 +54,7 @@ for i in compiled/test_horas_*.fst; do
     fstcompose $i compiled/horas.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 done
 
-for i in compiled/test_*.fst; do
+for i in compiled/test_*.fst images/test_*.pdf; do
 	echo "Removing test file: compiled/$(basename $i '.fst')"
     rm $i
 done
