@@ -2,7 +2,7 @@
 
 mkdir -p compiled images
 
-for i in sources/*.txt tests/*.txt; do
+for i in sources/*.txt tests/horas/*.txt; do
 	echo "Compiling: $i"
     fstcompile --isymbols=syms.txt --osymbols=syms.txt $i | fstarcsort > compiled/$(basename $i ".txt").fst
 done
@@ -17,7 +17,7 @@ fstconcat compiled/horas_e_dots_aux.fst compiled/minutos.fst > compiled/text2num
 fstrmepsilon compiled/text2num_aux.fst > compiled/text2num.fst
 
 # f)
-fstconcat compiled/horas.fst compiled/eps_to_dots_hours.fst > compiled/lazy2num_aux.fst
+fstconcat compiled/horas.fst compiled/eps_to_dots_horas.fst > compiled/lazy2num_aux.fst
 
 fstrmepsilon compiled/lazy2num_aux.fst > compiled/lazy2num.fst
 
@@ -49,5 +49,15 @@ for i in compiled/*.fst; do
     fstdraw --portrait --isymbols=syms.txt --osymbols=syms.txt $i | dot -Tpdf > images/$(basename $i '.fst').pdf
 done
 
-echo "Testing the transducer 'converter' with the input 'tests/numero.txt'"
-fstcompose compiled/numero.fst compiled/converter.fst | fstshortestpath | fstproject --project_output=true | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+for i in compiled/test_horas_*.fst; do
+    echo "Testing the transducer 'horas' with the input compiled/$(basename $i '.fst')"  
+    fstcompose $i compiled/horas.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+done
+
+for i in compiled/test_*.fst; do
+	echo "Removing test file: compiled/$(basename $i '.fst')"
+    rm $i
+done
+
+# echo "Testing the transducer 'converter' with the input 'tests/numero.txt'"
+# fstcompose compiled/numero.fst compiled/converter.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
