@@ -27,11 +27,11 @@ fstconcat compiled/hora_to_hora.fst compiled/meias_quartos_aux.fst > compiled/ri
 fstrmepsilon compiled/rich2text_aux.fst > compiled/rich2text.fst
 
 # h) TODO: CORRECT THIS 
-#fstcompose compiled/rich2text.fst compiled/text2num.fst > compiled/rich2num_1_aux.fst
-#fstunion  compiled/rich2num_1_aux.fst   compiled/lazy2num.fst > compiled/rich2num_2_aux.fst
-#fstunion  compiled/rich2num_2_aux.fst   compiled/text2num.fst > compiled/rich2num_3_aux.fst
+fstcompose compiled/rich2text.fst compiled/text2num.fst > compiled/rich2num_1_aux.fst
+fstunion  compiled/rich2num_1_aux.fst   compiled/lazy2num.fst > compiled/rich2num_2_aux.fst
+fstunion  compiled/rich2num_2_aux.fst   compiled/text2num.fst > compiled/rich2num_3_aux.fst
 
-#fstrmepsilon compiled/rich2num_3_aux.fst > compiled/rich2num.fst
+fstrmepsilon compiled/rich2num_3_aux.fst > compiled/rich2num.fst
 
 # i)
 fstinvert compiled/rich2num.fst > compiled/num2text_aux.fst
