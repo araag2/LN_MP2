@@ -51,17 +51,17 @@ done
     #fstcompose $i compiled/lazy2num.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 #done
 
-echo "rich2text.txt Tests"
-for i in compiled/test_rich2text_*.fst; do
-    echo "Testing the transducer 'rich2text' with the input compiled/$(basename $i '.fst')"  
-    fstcompose $i compiled/rich2text.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-done
-
-#echo "rich2num.txt Tests"
-#for i in compiled/test_rich2num_*.fst; do
-    #echo "Testing the transducer 'rich2num' with the input compiled/$(basename $i '.fst')"  
-    #fstcompose $i compiled/rich2num.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+#echo "rich2text.txt Tests"
+#for i in compiled/test_rich2text_*.fst; do
+    #echo "Testing the transducer 'rich2text' with the input compiled/$(basename $i '.fst')"  
+    #fstcompose $i compiled/rich2text.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 #done
+
+echo "rich2num.txt Tests"
+for i in compiled/test_rich2num_*.fst; do
+    echo "Testing the transducer 'rich2num' with the input compiled/$(basename $i '.fst')"  
+    fstcompose $i compiled/rich2num.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+done
 
 #echo "num2text.txt Tests"
 #for i in compiled/test_num2text_*.fst; do
