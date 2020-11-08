@@ -20,21 +20,23 @@ fstconcat compiled/horas_e_dots_aux.fst compiled/minutos.fst > compiled/text2num
 
 # f)
 fstconcat compiled/horas.fst compiled/eps_to_dots_horas.fst > compiled/lazy2num_aux.fst
+fstunion  compiled/lazy2num_aux.fst compiled/text2num.fst > compiled/lazy2num_aux_2.fst
 
-fstrmepsilon compiled/lazy2num_aux.fst > compiled/lazy2num.fst
+fstrmepsilon compiled/lazy2num_aux_2.fst > compiled/lazy2num.fst
 
 # g)
 fstunion compiled/quartos.fst compiled/meias.fst > compiled/meias_quartos_aux.fst
-fstconcat compiled/hora_to_hora.fst compiled/meias_quartos_aux.fst > compiled/rich2text_aux.fst
+fstproject compiled/horas.fst > compiled/horas_aux_1.fst
+fstconcat compiled/horas_aux_1.fst compiled/hora_to_eps_e.fst > compiled/horas_aux_2.fst
+fstconcat compiled/horas_aux_2.fst compiled/meias_quartos_aux.fst > compiled/rich2text_aux.fst
 
 fstrmepsilon compiled/rich2text_aux.fst > compiled/rich2text.fst
 
 # h)  
 fstcompose compiled/rich2text.fst compiled/text2num.fst | fstarcsort > compiled/rich2num_1_aux.fst
 fstunion  compiled/rich2num_1_aux.fst   compiled/lazy2num.fst > compiled/rich2num_2_aux.fst
-fstunion  compiled/rich2num_2_aux.fst   compiled/text2num.fst > compiled/rich2num_3_aux.fst
 
-fstrmepsilon compiled/rich2num_3_aux.fst > compiled/rich2num.fst
+fstrmepsilon compiled/rich2num_2_aux.fst > compiled/rich2num.fst
 
 # i)
 fstinvert compiled/text2num.fst > compiled/num2text_aux.fst
