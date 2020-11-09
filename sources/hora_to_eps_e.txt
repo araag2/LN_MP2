@@ -1,5 +1,5 @@
-0   1   hora   eps
-0   1   horas  eps
-0   1   eps eps
+0   1   hora   eps  1
+0   1   horas  eps  1
+0   1   eps eps 2
 1   2   e   e
 2

@@ -66,7 +66,7 @@ done
 echo "num2text.txt Tests"
 for i in compiled/test_num2text_*.fst; do
     echo "Testing the transducer 'num2text' with the input compiled/$(basename $i '.fst')"  
-    fstcompose $i compiled/num2text.fst | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+    fstcompose $i compiled/num2text.fst | fstshortestpath | fstproject --project_type=output | fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 done
 
 for i in compiled/test_*.fst; do

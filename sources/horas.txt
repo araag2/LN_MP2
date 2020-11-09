@@ -44,8 +44,8 @@
 18   23  eps 8
 19   23  eps 9
 21  23  eps 0 
-23  25  horas   eps
-23  25  eps eps
-24  25  hora    eps
-24  25  eps eps
+23  25  horas   eps 2
+23  25  eps eps 3
+24  25  hora    eps 2
+24  25  eps eps 3
 25    

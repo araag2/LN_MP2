@@ -43,7 +43,7 @@ fstinvert compiled/text2num.fst > compiled/num2text_aux.fst
 
 fstrmepsilon compiled/num2text_aux.fst > compiled/num2text.fst
 
-for i in compiled/*_aux.fst; do
+for i in compiled/*_aux*.fst; do
 	echo "Removing aux file: compiled/$(basename $i '.fst')"
     rm $i
 done
